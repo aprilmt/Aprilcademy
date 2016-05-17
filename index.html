@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Practice</title>
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="https://code.jquery.com/ui/1.11.4/themes/cupertino/jquery-ui.css">
+    <!-- Custom CSS -->
+    <link href="css/agency.css" rel="stylesheet">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <!-- js -->
+
+
+    <script src="js/jquery.js"></script>
+    <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+
+       
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="https://cdn.firebase.com/js/client/2.4.1/firebase.js"></script> 
+
+     <script src="js/bootstrap.min.js"></script>
+
+
+    <script src="js/myscript.js"></script>
+
+    <script>
+        $(function() {
+          $('a[href*="#"]:not([href="#"])').click(function() {
+            if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+              var target = $(this.hash);
+              target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+              if (target.length) {
+                $('html, body').animate({
+                  scrollTop: target.offset().top
+                }, 1000);
+                return false;
+              }
+            }
+          });
+        });
+    </script>
+
+
+<style>
+    .modal-backdrop {
+  z-index: 0;
+}
+</style>
+
+</head>
+
+<body>
+
+	<div class="navbar-wrapper" >
+	  <div class="container">
+
+	  
+    
+
+	      <div class="navbar navbar-default navbar-fixed-top " style="  padding-top: 5px; padding-left: 0px; background-color: #FFFFFF !important;" role="navigation">
+	        <div class="container-fluid" style="padding-right: 10px;">
+	          <div class="navbar-header">
+	            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+	              <span class="sr-only">Toggle navigation</span>
+	              <span class="icon-bar"></span>
+	              <span class="icon-bar"></span>
+	              <span class="icon-bar"></span>
+	            </button>
+			  
+		            <a class="navbar-brand" style="color:#0B85B2;margin-left:30px;margin-top:10px;"> Aprilcademy</a> 
+				</p> 
+		          </div>
+
+	          <!-- Collect the nav links, forms, and other content for toggling -->
+	          <div class="collapse navbar-collapse">
+	          
+					 <ul class="nav navbar-nav navbar-right" style="padding-left:15px; ">	
+						<li> <a href="#" style="color:#0B85B2; padding-top:30px; font-size: 1.5em; font-weight:Normal;">Bits +</a> </li>
+
+
+		 			<!-- register -->
+                    <li><a href="#" id="myBtn-register" style="color:#FF8000;  padding-top:30px; font-size: 1.5em; font-weight:Normal;"> Sign Up</a></li>
+                        <!-- Modal -->
+                        <div class="modal fade" id="myModal-register" role="dialog">
+                            <div class="modal-dialog">              
+                                <!-- Modal content-->
+                                <div class="modal-content">
+                                    <div class="modal-header" style="padding:35px 50px;">
+                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                        <h4><span class="glyphicon glyphicon-lock"></span> Sign Up</h4>
+                                    </div>
+                                    
+                                    <div class="modal-body" style="padding:40px 50px;">
+                                        <form role="form">
+                                            <div class="form-group">
+                                                <label for="email"><span class="glyphicon glyphicon-user"></span> Username</label>
+                                                <input type="email" class="form-control" id="register-email" placeholder="Enter email">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="pwd"><span class="glyphicon glyphicon-eye-open"></span> Password</label>
+                                                <input type="password" class="form-control" id="register-password" placeholder="Enter password">
+                                            </div>
+                                            <div class="checkbox">
+                                                <label><input type="checkbox" value="" checked>Remember me</label>
+                                            </div>
+                                            <button type="submit" class="btn btn-success btn-block" id="opener-register" style="background-color:#FF8000; border: none;"><span class="glyphicon glyphicon-off"></span> Sign Up</button>
+                                        </form>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+
+                        <!-- login -->
+                    <li id="myBtn-login"><a href="#" style="color:#FF8000;  padding-top:30px; font-size: 1.5em; font-weight:Normal;"> Login</a></li>
+                        <!-- Modal -->
+                        <div class="modal fade" id="myModal-login" role="dialog">
+                            <div class="modal-dialog">
+              
+                                <!-- Modal content-->
+                                <div class="modal-content">
+                                    <div class="modal-header" style="padding:35px 50px;">
+                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                        <h4><span class="glyphicon glyphicon-lock"></span> Login</h4>
+                                    </div>
+                                    <div class="modal-body" style="padding:40px 50px;">
+                                        <form role="form">
+                                            <div class="form-group">
+                                                <label for="email"><span class="glyphicon glyphicon-user"></span> Username</label>
+                                                <input type="email" class="form-control" id="login-email" placeholder="Enter email">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="pwd"><span class="glyphicon glyphicon-eye-open"></span> Password</label>
+                                                <input type="password" class="form-control" id="login-password" placeholder="Enter password">
+                                            </div>
+                                            <div class="checkbox">
+                                                <label><input type="checkbox" value="" checked>Remember me</label>
+                                            </div>
+                                            <button type="submit" class="btn btn-success btn-block" id="opener-login" style="background-color:#FF8000; border: none;">Login</button>
+                                        </form>
+                                    </div>
+                                </div>
+
+                            </div> 
+                        </div>
+                        <!--  -->
+		 			    <!-- Sign out -->
+
+                        <li>  <a href="#" style="color:#FF8000; padding-right:30px; padding-top:30px; font-size: 1.5em; font-weight:Normal;" id="opener-logout">Sign out</a></li>
+						</ul>
+         				 </div>
+	      </div>
+	      </div>
+
+    	</div>
+	</div>	   
+
+
+
+<!--  -->
+					<header>
+				        <div class="container">
+				            <div class="intro-text">
+				                <div class="intro-heading">Learn to < code > interactively</div>
+				                <div class="intro-lead-in">There are more than 30 million learners around the world</div>
+				                <a href="#portfolio"  class="page-scroll btn  btn-xl" style="font-size:20px;padding-left:30px;padding-right:30px;padding-top:20px;padding-bottom:20px;margin-top:20px;" >Take A Look</a>
+
+
+
+
+                            </div>
+                        </div>
+ 
+
+
+				            </div>
+				        </div>
+				    </header>
+
+
+            
+
+
+  
+
+        
+		<section id="portfolio" class="bg-light-gray">
+        <div class="container">
+
+        <!-- Search bar -->
+                    <div class="ui-widget">
+    
+                        <label for="tags">Search for keywords: </label>
+                        <input id="tags" placeholder="example:Action">
+                    </div>
+            
+            <br><br><br>
+            <div class="row">
+                <div class="col-md-4 col-sm-6 portfolio-item">
+                    <a href="#portfolioModal1" class="portfolio-link" data-toggle="modal">
+                        <div class="portfolio-hover">
+                            <div class="portfolio-hover-content">
+                                <i class="fa fa-plus fa-3x"></i>
+                            </div>
+                        </div>
+                        <img src="image/2.png" class="img-responsive" alt="">
+                    </a>
+                    <div class="portfolio-caption">
+                        <h3>Blog</h3>
+                        
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6 portfolio-item">
+                    <a href="#portfolioModal2" class="portfolio-link" data-toggle="modal">
+                        <div class="portfolio-hover">
+                            <div class="portfolio-hover-content">
+                                <i class="fa fa-plus fa-3x"></i>
+                            </div>
+                        </div>
+                        <img src="image/3.png" class="img-responsive" alt="">
+                    </a>
+                    <div class="portfolio-caption">
+                        <h3>Forum</h3>
+                        
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6 portfolio-item">
+                    <a href="#portfolioModal3" class="portfolio-link" data-toggle="modal">
+                        <div class="portfolio-hover">
+                            <div class="portfolio-hover-content">
+                                <i class="fa fa-plus fa-3x"></i>
+                            </div>
+                        </div>
+                        <img src="image/4.png" class="img-responsive" alt="">
+                    </a>
+                    <div class="portfolio-caption">
+                        <h3>Hot Courses</h3>
+                        
+                    </div>
+                </div>
+                
+            </div>
+
+
+
+
+
+        </div>
+    </section>
+
+<!--  footer-->
+    <footer class="footer" style="background:white;">
+        <div class="footer-content">
+            <div class="container">
+                <div class="row">                    
+                    <div class="footer-col links col-md-2 col-sm-4 col-xs-12">
+                        <div class="footer-col-inner">
+                            <h3 class="title">About us</h3>
+                            <ul class="list-unstyled">
+                                <li><a href="#"><i class="fa fa-caret-right"></i>&nbsp Who we are</a></li>
+                                <li><a href="#"><i class="fa fa-caret-right"></i>&nbsp Press</a></li>
+                                <li><a href="#"><i class="fa fa-caret-right"></i>&nbsp Blog</a></li>
+                                <li><a href="#"><i class="fa fa-caret-right"></i>&nbsp Jobs</a></li>
+                                <li><a href="#"><i class="fa fa-caret-right"></i>&nbsp Contact us</a></li>
+                            </ul>
+                        </div><!--//footer-col-inner-->
+                    </div><!--//foooter-col-->    
+                    <div class="footer-col links col-md-2 col-sm-4 col-xs-12">
+                        <div class="footer-col-inner">
+                            <h3 class="title">Download</h3>
+                            <ul class="list-unstyled" >
+                                <li><a href="#"><i class="fa fa-caret-right"></i>&nbsp For IOS</a></li>
+                                <li><a href="#"><i class="fa fa-caret-right"></i>&nbsp For Android</a></li>
+                               
+                                
+                            </ul>
+                        </div><!--//footer-col-inner-->
+                    </div><!--//foooter-col-->              
+                    <div class="footer-col links col-md-2 col-sm-4 col-xs-12 sm-break">
+                        <div class="footer-col-inner">
+                            <h3 class="title">Support</h3>
+                            <ul class="list-unstyled">
+                                <li><a href="#"><i class="fa fa-caret-right"></i>&nbsp Help</a></li>
+                                
+                                <li><a href="#"><i class="fa fa-caret-right"></i>&nbsp Terms of services</a></li>
+                                <li><a href="#"><i class="fa fa-caret-right"></i>&nbsp Privacy</a></li>
+                            </ul>
+                        </div><!--//footer-col-inner-->            
+                    </div><!--//foooter-col-->   
+                    <div class="footer-col connect col-md-6 col-sm-12 col-xs-12">
+                        <div class="footer-col-inner">
+                            <ul class="social list-inline">
+                                <li><a href="https://twitter.com/3rdwave_themes" target="_blank"><i class="fa fa-twitter"></i></a></li>
+                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                                <li><a href="#"><i class="fa fa-instagram"></i></a></li>        
+                                <li class="row-end"><a href="#"><i class="fa fa-rss"></i></a></li>             
+                            </ul>
+                            <div class="form-container">
+                                <p class="intro">Stay up to date with the latest news and offers from Aprilcademy</p>
+                                <form class="signup-form navbar-form">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" placeholder="Enter your email address">
+                                    </div>   
+                                    <button type="submit" class="btn btn-cta btn-cta-primary">Subscribe Now</button>                                 
+                                </form>                               
+                            </div><!--//subscription-form-->
+                        </div><!--//footer-col-inner-->
+                    </div><!--//foooter-col-->
+                    <div class="clearfix"></div> 
+                </div><!--//row-->
+                                      
+                        </div><!--//footer-col-inner-->
+                    </div><!--//contact-->
+                </div>
+            </div><!--//container-->
+        </div><!--//footer-content-->
+
+
+</footer>
+
+
+
+
+
+
+</body>
+</html>
